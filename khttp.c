@@ -91,7 +91,7 @@ void khttp_do_req(khttp_req_t *khr)
   byte_buffer_put_string(request_buf, "User-Agent: ");
   byte_buffer_put_string(request_buf, USER_AGENT);
   byte_buffer_put_string(request_buf, "\r\n");
-  
+
   // Add host
   byte_buffer_put_string(request_buf, "Host: ");
   byte_buffer_put_string(request_buf, khr->parsedurl->host);
@@ -100,6 +100,8 @@ void khttp_do_req(khttp_req_t *khr)
   KDEBUGF("%s\n", request_buf->buf);
   
   ksock_send_buf(khr->conn, request_buf);
+
+  byte_buffer_destroy(request_buf);
 
   byte_buffer_t *response_buf = ksock_recv_buf(khr->conn, 8192);
 
@@ -257,6 +259,7 @@ void khttp_do_req(khttp_req_t *khr)
       {
         free(chunk_str);
         byte_buffer_destroy(out);
+        byte_buffer_destroy(response_buf);
         khr->status = -1;
         return;
       }
@@ -288,6 +291,8 @@ void khttp_do_req(khttp_req_t *khr)
         byte_buffer_t *additional_data = ksock_recv_buf(khr->conn, 4096);
         if(additional_data == NULL)
         {
+          byte_buffer_destroy(out);
+          byte_buffer_destroy(response_buf);
           khr->status = -1;
           return;
         }
@@ -306,5 +311,6 @@ void khttp_do_req(khttp_req_t *khr)
     }
   }
 
+  byte_buffer_destroy(response_buf);
   khr->body = out;
 }

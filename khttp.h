@@ -39,5 +39,6 @@ typedef struct {
 khttp_req_t *khttp_req_alloc(int verb, char *url);
 
 void khttp_do_req(khttp_req_t *khr);
+void khttp_destroy(khttp_req_t *khr);
 
 #endif
