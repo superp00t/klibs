@@ -20,6 +20,8 @@
 #define PUT  2
 #define HEAD 4
 
+#define USER_AGENT  "klibs (0.1)"
+
 #define FLAG_CHUNKED 1 << 1
 
 #define XFER_ENCODING  1

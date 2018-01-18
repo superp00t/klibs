@@ -88,8 +88,10 @@ void khttp_do_req(khttp_req_t *khr)
   byte_buffer_put_string(request_buf, " HTTP/1.1\r\n"); // "GET /path/ HTTP/1.1\r\n"
   
   // Add user agent
-  byte_buffer_put_string(request_buf, "User-Agent: Kommy-Utils\r\n");
-
+  byte_buffer_put_string(request_buf, "User-Agent: ");
+  byte_buffer_put_string(request_buf, USER_AGENT);
+  byte_buffer_put_string(request_buf, "\r\n");
+  
   // Add host
   byte_buffer_put_string(request_buf, "Host: ");
   byte_buffer_put_string(request_buf, khr->parsedurl->host);
