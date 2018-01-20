@@ -4,12 +4,6 @@
 #include <malloc.h>
 #include <string.h>
 
-
-// #ifndef _WIN32
-// #include <openssl/ssl.h>
-// #include <openssl/err.h>
-// #endif
-
 #include "ksock.h"
 #include "byte_buffer.h"
 #include "debug.h"

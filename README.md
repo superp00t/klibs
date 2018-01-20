@@ -1,11 +1,19 @@
 # klibs (unstable)
 
+WARNING: **While we attempt to make klibs as stable and secure as possible, as a C library, it may be vulnerable to one or more memory-related RCE exploits. This is not to be taken lightly.**
+
 Utilities include:
   - Cross platform TCP socket API, with support for TLS encryption
-  - Cross platform mutexes (threads cumming soon)
+  - Cross platform mutexes
   - HTTP(S) client
   - TweetNaCl cryptography and random number generation
   - Byte array manipulation helpers
+
+Utilities coming soon:
+  - High-speed hash map
+  - Multithreading
+  - Concurrent item queue (similar to Go channel)
+  - ICMP ping
 
 # Contributing
 

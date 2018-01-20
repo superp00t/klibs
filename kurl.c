@@ -15,7 +15,6 @@ int kurl_parse(char *url, bool verify_host, kurl_t *parsed_url)
 
 	// Copy our string
 	strcpy(local_url, url);
-  KDEBUGF("FUCKING %s\n", url);
   token = strtok_r(local_url, ":", &token_ptr);
 	parsed_url->protocol = (char *) malloc(sizeof(char) * strlen(token) + 1);
 	strcpy(parsed_url->protocol, token);
