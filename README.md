@@ -4,6 +4,7 @@ WARNING: **While we attempt to make klibs as stable and secure as possible, as a
 
 Utilities include:
   - Cross platform TCP socket API, with support for TLS encryption
+  - UDP datagram send and receive
   - Cross platform mutexes
   - HTTP(S) client
   - TweetNaCl cryptography and random number generation
